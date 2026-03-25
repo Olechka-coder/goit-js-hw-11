@@ -1,11 +1,15 @@
 import { fetchImages } from "./js/pixabay-api.js";
-import { renderGallery, clearGallery } from "./js/render-functions.js";
+import {
+  renderGallery,
+  clearGallery,
+  showLoader,
+  hideLoader,
+} from "./js/render-functions.js";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 const form = document.querySelector(".form");
 const input = form.querySelector("input");
-const loader = document.querySelector(".loader");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -45,11 +49,3 @@ form.addEventListener("submit", async (e) => {
     hideLoader(); // 🔥 ховаємо завжди
   }
 });
-
-function showLoader() {
-  loader.classList.add("active");
-}
-
-function hideLoader() {
-  loader.classList.remove("active");
-}

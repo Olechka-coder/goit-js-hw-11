@@ -6,6 +6,8 @@ let lightbox = new SimpleLightbox(".gallery a", {
   captionDelay: 250,
 });
 
+const loader = document.querySelector(".loader");
+
 export function clearGallery() {
   document.querySelector(".gallery").innerHTML = "";
 }
@@ -42,5 +44,13 @@ export function renderGallery(images) {
   const gallery = document.querySelector(".gallery");
   gallery.insertAdjacentHTML("beforeend", createMarkup(images));
 
-  lightbox.refresh(); // 🔥 ОБОВ’ЯЗКОВО
+  lightbox.refresh();
+}
+
+export function showLoader() {
+  loader?.classList.add("active");
+}
+
+export function hideLoader() {
+  loader?.classList.remove("active");
 }
